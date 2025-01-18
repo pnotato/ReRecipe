@@ -16,6 +16,13 @@ const InputBox = ({input, handleInputChange}) => {
   )
 } //Input box
 
+const SearchButton = ({onClick}) => {
+  return (
+    <button onClick={onClick}>
+    </button>
+  )
+}
+
 
 function App() {
   const [input, setInput] = useState("");
@@ -25,11 +32,20 @@ function App() {
     setInput(value);
   }
 
+  const handleSearch = () => {
+    //search function here
+  }
+
+
+
   return (
     <div>
       <InputBox
           input = {input}
           handleInputChange={handleInputChange}
+      />
+      <SearchButton
+            onClick={handleSearch}
       />
     </div>
   )
