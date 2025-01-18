@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+
 import './App.css'
-const InputBox = ({input, handleInputChange}) => {
+const InputBox = ({input, handleInputChange, handleSubmit}) => {
   return (
     <div>
       <input
@@ -12,6 +13,9 @@ const InputBox = ({input, handleInputChange}) => {
         onChange = {handleInputChange}
         className="search-bar"
       />
+      <button onClick={handleSubmit} className="submit-button">
+        Submit
+      </button>
     </div>
   )
 } //Input box
@@ -32,20 +36,28 @@ function App() {
     setInput(value);
   }
 
-  const handleSearch = () => {
-    //search function here
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/enter-recipe-text', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data: input }),
+      });
+      const result = await response.json();
+      console.log(result);
+    } catch(error) {
+      console.error('Error: ', error);
+    }
   }
-
-
 
   return (
     <div>
       <InputBox
           input = {input}
           handleInputChange={handleInputChange}
-      />
-      <SearchButton
-            onClick={handleSearch}
+          handleSubmit={handleSubmit}
       />
     </div>
   )
