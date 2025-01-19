@@ -34,11 +34,6 @@ function NutritionFacts({ totalNutrients }) {
                 </header>
                 <table className="performance-facts__table">
                 <thead>
-                    <tr>
-                    <th colSpan={3} className="small-info">
-                        Amount Per Serving
-                    </th>
-                    </tr>
                 </thead>
                 <tbody>
                     <tr>
