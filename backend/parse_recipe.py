@@ -8,7 +8,7 @@ load_dotenv("../.env")
 
 
 # Helper function to call OpenAI API
-def parse_recipe(text_input):
+def parse_recipe(text_input: str) -> str:
     example_response = """
 [
     {
@@ -55,7 +55,7 @@ def parse_recipe(text_input):
             {"role": "system", "content": "You are a recipe parsing AI."},
             {"role": "user", "content": prompt}
         ],
-        model="gpt-4o",
+        model="gpt-4o-mini",
         max_tokens=500
     )
     return response.choices[0].message.content.strip()
