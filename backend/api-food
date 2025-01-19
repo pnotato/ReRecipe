@@ -1,0 +1,38 @@
+import requests
+from requests_oauthlib import OAuth2Session
+
+# OAuth 2.0 credentials
+CLIENT_ID = "your-client-id"
+CLIENT_SECRET = "your-client-secret"
+AUTHORIZATION_BASE_URL = "https://api.example.com/oauth/authorize"
+TOKEN_URL = "https://api.example.com/oauth/token"
+REDIRECT_URI = "https://your-redirect-uri.com/callback"
+
+# Step 1: Get the authorization URL
+oauth = OAuth2Session(client_id=CLIENT_ID, redirect_uri=REDIRECT_URI)
+authorization_url, state = oauth.authorization_url(AUTHORIZATION_BASE_URL)
+
+print("Go to the following URL to authorize:")
+print(authorization_url)
+
+# Step 2: Get the authorization response
+authorization_response = input("Paste the full redirect URL here: ")
+
+# Step 3: Exchange the authorization code for an access token
+token = oauth.fetch_token(
+    TOKEN_URL,
+    authorization_response=authorization_response,
+    client_secret=CLIENT_SECRET,
+)
+
+print("Access Token:", token)
+
+# Step 4: Make an API call with the access token
+api_url = "https://api.example.com/resource"
+headers = {"Authorization": f"Bearer {token['access_token']}"}
+response = requests.get(api_url, headers=headers)
+
+if response.status_code == 200:
+    print("API Response:", response.json())
+else:
+    print("Failed to fetch data:", response.status_code, response.text)
