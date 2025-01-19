@@ -85,7 +85,7 @@ function App() {
   }
 
 function normalizeNutriscore(score) {
-  return 100 - ((score + 15) * 100 / (20 - (-15)));
+  return 100 - ((score + 15) * 100 / (40 - (-15)));
 }
 
 
@@ -93,22 +93,22 @@ function normalizeNutriscore(score) {
     let wid = document.getElementsByClassName("bar")[0].clientWidth;
     setCalorie.start({
       from: { width: 0 },
-      to: { width: (v1 / 100 * wid) },
+      to: { width: ((1 - (v1 / 100)) * wid) },
     })
     setCalorieCol(matchPercentColorReverse(v1));
     setSugar.start({
       from: { width: 0 },
-      to: { width: (v2 / 100 * wid) },
+      to: { width: ((1 - (v2 / 100)) * wid) },
     })
     setSugarCol(matchPercentColorReverse(v2));
     setFat.start({
       from: { width: 0 },
-      to: { width: (v3 / 100 * wid) },
+      to: { width: ((1 - (v3 / 100)) * wid) },
     })
     setFatCol(matchPercentColorReverse(v3));
     setSalt.start({
       from: { width: 0 },
-      to: { width: (v4 / 100 * wid) },
+      to: { width: ((1 - (v4 / 100)) * wid) },
     })
     setSaltCol(matchPercentColorReverse(v4));
     setFibre.start({
