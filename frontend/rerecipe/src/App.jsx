@@ -246,7 +246,9 @@ function normalizeNutriscore(score) {
             <div className="bars">
               <div className="bar-container">
               <div className="bar-text">Calorie Density</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Calories 
                     style={{
@@ -258,7 +260,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Sugar</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Sugar
                     style={{
@@ -270,7 +274,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Saturated Fats</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Fat
                     style={{
@@ -282,7 +288,8 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Salt</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/></div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Salt
                     style={{
@@ -294,7 +301,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Fibre</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Fibre
                     style={{
@@ -306,7 +315,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Protein</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Protein
                     style={{
@@ -318,7 +329,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
               <div className="bar-text">Fruits & Vegetables</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Greens
                     style={{
