@@ -14,6 +14,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import { updateText } from './utils';
 import 'react-circular-progressbar/dist/styles.css';
 import './App.css'
+import NutritionFacts from './components/NutritionFacts'
 
 
 const InputBox = ({ input, handleInputChange, handleSubmit }) => {
@@ -57,12 +58,12 @@ function App() {
   const [scoreVisible, setScoreVisible] = useState(true);
   const [percent, setPercent] = useSpring(() => ({ from: { x: 0 } }))
   const [transparent, setOpacity] = useState({ background: 'transparent' });
-  const [description, setDescription] = useState("");
   const [barPercent, setBarPercent] = useState(0);
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInput(value);
   }
+  const [NutriFacts, setNutriFacts] = useState({})
 
   function matchPercentColor(percent) {
     if (percent < 20) {
@@ -146,14 +147,12 @@ function App() {
     handleScore(40);
     setLoadingVisible(false);
     setOpacity({ background: '#ffffff' });
-    setDescription("Description");
-    setScoreVisible(true)
+    setScoreVisible(true);
   }
 
   const handleSubmit = async () => {
     setLoadingVisible(true);
     setScoreVisible(false);
-    setDescription("Loading...");
     setBarPercent(0);
     try {
       const response = await fetch('http://127.0.0.1:5000/parse_recipe', {
@@ -175,30 +174,9 @@ function App() {
       setLoadingVisible(false);
       setOpacity({ background: '#ffffff' });
 
-      let f = result["total_nutrients"]
-      let nutritional_facts = `
-      Calcium: ${f["calcium"]} mg\n
-      Calories: ${f["calories"]} kcal\n
-      Carbohydrates: ${f["carbohydrate"]} g\n
-      Cholesterol: ${f["cholesterol"]} mg\n
-      Fat: ${f["fat"]} g\n
-      Fiber: ${f["fiber"]} g\n
-      Iron: ${f["iron"]} mg\n
-      Monounsaturated Fat: ${f["monounsaturated_fat"]} g\n
-      Polyunsaturated Fat: ${f["polyunsaturated_fat"]} g\n
-      Potassium: ${f["potassium"]} mg\n
-      Protein: ${f["protein"]} g\n
-      Saturated Fat: ${f["saturated_fat"]} g\n
-      Sodium: ${f["sodium"]} mg\n
-      Sugar: ${f["sugar"]} g\n
-      Vitamin A: ${f["vitamin_a"]} IU\n
-      Vitamin C: ${f["vitamin_c"]} mg\n
-      Weight: ${f["weight"]} g\n
-      `;
+      setNutriFacts(result["total_nutrients"])
 
-      
-      setDescription(nutritional_facts);
-      setScoreVisible(true)
+      setScoreVisible(true);
 
     } catch (error) {
       console.error('Error: ', error);
@@ -357,7 +335,7 @@ function App() {
         </div>
         <div className="divider small-divider" style={{ paddingRight: '30px' }}>
           <div className="small-content-box">
-              {description}
+            <NutritionFacts totalNutrients={NutriFacts} />
           </div>
         </div>
       </div>

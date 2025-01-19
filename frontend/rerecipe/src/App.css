@@ -1,5 +1,6 @@
 #root {
   text-align: left;
+  color:#000000;
 }
 html, body {
     margin: 0;
@@ -8,7 +9,6 @@ html, body {
     height: 100%;
     box-sizing: border-box;
 
-    color: #9b9b9b;
     background-color: #10DE93;
     background: linear-gradient(290deg, #54DBA2, #83f0b4, #01B674, #A1D99B);
     background-size: 240% 240%;
@@ -71,7 +71,6 @@ html, body {
   background-color: #cdffca;
   border: 0px;
   resize: none;
-  color: #9b9b9b;
   outline: none;
 }
 
