@@ -87,7 +87,36 @@ function App() {
 function normalizeNutriscore(score) {
   return 100 - ((score + 15) * 100 / (40 - (-15)));
 }
-
+  function resetBars() {
+    setCalorie.start({
+      from: { width: 0 },
+      to: { width: 0 },
+    })
+    setSugar.start({
+      from: { width: 0 },
+      to: { width: 0 },
+    })
+    setFat.start({
+      from: { width: 0 },
+      to: { width: 0 },
+    })
+    setSalt.start({
+      from: { width: 0 },
+      to: { width: 0 },
+    })
+    setFibre.start({
+      from: { width: 0 },
+      to: { width: 0 },
+    })
+    setProtein.start({
+      from: { width: 0 },
+      to: { width: 0 },
+    })
+    setGreens.start({
+      from: { width: 0 },
+      to: { width: 0 },
+    })
+  }
 
   function handleBars(v1, v2, v3, v4, v5, v6, v7) {
     let wid = document.getElementsByClassName("bar")[0].clientWidth;
@@ -147,6 +176,9 @@ function normalizeNutriscore(score) {
   const handleSubmit = async () => {
     setLoadingVisible(true);
     setScoreVisible(false);
+    resetBars();
+    setDescription("Loading...");
+    setBarPercent(0);
     try {
       const response = await fetch('http://127.0.0.1:5000/parse_recipe', {
 
@@ -349,7 +381,7 @@ function normalizeNutriscore(score) {
         </div>
         <div className="divider small-divider" style={{ paddingRight: '30px' }}>
           <div className="small-content-box">
-            {description}
+              {description}
           </div>
         </div>
       </div>
