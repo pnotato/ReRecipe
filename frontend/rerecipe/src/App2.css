@@ -4,9 +4,25 @@ html, body {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+
     color: #9b9b9b;
     background-color: #10DE93;
+    background: linear-gradient(290deg, #54DBA2, #83f0b4, #01B674, #A1D99B);
+    background-size: 240% 240%;
+    animation: gradient-animation 10s ease infinite;
 }
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+  }
 
 .dividers {
     display: flex;
@@ -21,7 +37,7 @@ html, body {
     flex: 0 0 25%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: ;
     padding: 20px; 
     box-sizing: border-box; 
 }
@@ -42,12 +58,17 @@ html, body {
   
 .large-divider {
     flex: 0 0 50%;
-
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    padding: 20px; 
+    padding: 20px;
     box-sizing: border-box;
+
+}
+
+ProgressBar {
+    width: 60%;
 }
 
 /* .large-content-box {
@@ -68,7 +89,7 @@ html, body {
     position: absolute;
     top: 0;
     left: 30px; /* Align to the top-right corner */
-    height: 20vh; /* Set the height */
+    height: 15vh; /* Set the height */
     width: 225px; /* Let the width adjust automatically */
     background-image: url("./assets/logo.png");
     background-size: contain; /* Maintain aspect ratio */
