@@ -55,17 +55,24 @@ def parse_recipe(text_input: str) -> dict:
             {"role": "user", "content": prompt}
         ],
         model="gpt-4o-mini",
-        max_tokens=500
+        max_tokens=2000
     )
 
     recipe_ingredients_str = response.choices[0].message.content.strip()
-    # print(recipe_ingredients_str)
+    print(recipe_ingredients_str)
 
     # Initialize response dictionary
     response = {}
 
     # Convert the string to a list of dictionaries
-    recipe_ingredients_dict = eval(recipe_ingredients_str)
+    try:
+        recipe_ingredients_dict = eval(recipe_ingredients_str)
+    except TypeError or SyntaxError:
+        try:
+            eval(recipe_ingredients_str + "}")
+        except Exception as e:
+            print(e)
+            raise(TypeError("Invalid response from OpenAI API"))
     response["ingredients"] = recipe_ingredients_dict
 
     # Get percentage of fruit/vegetables in ingredient list
@@ -126,5 +133,7 @@ def parse_recipe(text_input: str) -> dict:
         total_nutrients["vitamin_c"] += data["vitamin_c"]
 
     response["total_nutrients"] = total_nutrients
+
+    print(response)
 
     return response
