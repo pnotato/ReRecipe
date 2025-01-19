@@ -1,11 +1,14 @@
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from dotenv import load_dotenv
 import openai
 
 load_dotenv("../.env")
 
 app = Flask(__name__)
+CORS(app)
+
 
 # Load OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -14,7 +17,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 def home():
     return "Home"
 
-@app.route("/get-user/<user_id>")
+@app.route("/get-user/<user_id>") # testing
 def get_user(user_id):
     user_data = {
         "user_id": user_id,
@@ -28,6 +31,11 @@ def get_user(user_id):
 
     return jsonify(user_data), 200
 
+@app.route("/enter-recipe-text", methods=['POST'])
+def process_recipe_text():
+    data = request.json
+    print(data)
+    return jsonify({"message": "success", "data":data})
 @app.route("/parse_recipe", methods=["POST"])
 def call_openai():
     data = request.json
