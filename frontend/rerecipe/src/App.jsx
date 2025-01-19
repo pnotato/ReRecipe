@@ -10,28 +10,19 @@ import './App.css'
 
 const InputBox = ({input, handleInputChange, handleSubmit}) => {
   return (
-    <div>
-      <input
+    <div className="input-container">
+      <button className="submit-button" onClick={handleSubmit} c>
+        Submit
+      </button>
+      <textarea className="small-input-box"
         type = "text"
         placeholder = "Enter a recipe or ingredients list..."
         value = {input}
-        onChange = {handleInputChange}
-        className="small-input-box"
-      />
-      <button onClick={handleSubmit} className="submit-button">
-        Submit
-      </button>
+        onChange = {handleInputChange}/>
     </div>
   )
 } //Input box
 
-const SearchButton = ({onClick}) => {
-  return (
-
-    <button onClick={onClick} className="search-button">
-    </button>
-  )
-}
 
 
 
@@ -164,6 +155,7 @@ function App() {
         </div>
         <div className="divider large-divider">
           <div className="inner-container">
+            <div className="text">This Recipe has a NutriScore of:</div>
             <div className = 'score-container'>
               <div ref = {ref} className='main'>
                 <div className = "loading-container">
@@ -191,54 +183,75 @@ function App() {
                 </CircularProgressbar>
               </div>
             </div>
-            <div className = "bar"> 
-              <animated.div className = "bar-anim" //Calories 
+            <div className = "bar-container">
+              <div className = "box" style={{...transparent}}/>
+             <div className = "bar"> 
+                <animated.div className = "bar-anim" //Calories 
                 style={{
                 background: caloriesCol,
                 ...calories}}>
-              </animated.div>
+                </animated.div>
+              </div>
             </div>
-            <div className = "bar">
-              <animated.div className = "bar-anim" //Sugar
+            <div className = "bar-container">
+              <div className = "box" style={{...transparent}}/>
+              <div className = "bar">
+                <animated.div className = "bar-anim" //Sugar
                 style={{
                 background: sugarCol,
                 ...sugar}}>
-              </animated.div>
+                </animated.div>
+              </div>
             </div>
-            <div className = "bar">
-              <animated.div className = "bar-anim" //Fat
+            <div className = "bar-container">
+              <div className = "box" style={{...transparent}}/>
+              <div className = "bar">
+                <animated.div className = "bar-anim" //Fat
                 style={{ 
                 background: fatCol,
                 ...fat}}>
-              </animated.div>
+                </animated.div>
+              </div>
             </div>
-            <div className = "bar">
-              <animated.div className = "bar-anim" //Salt
+            <div className = "bar-container">
+              <div className = "box" style={{...transparent}}/>
+              <div className = "bar">
+                <animated.div className = "bar-anim" //Salt
                 style={{
                 background: saltCol,
                 ...salt}}>
-              </animated.div>
+                </animated.div>
+              </div>
             </div>
-            <div className = "bar">
-              <animated.div className = "bar-anim" //Fibre
+            <div className = "bar-container">
+              <div className = "box" style={{...transparent}}/>
+              <div className = "bar">
+                <animated.div className = "bar-anim" //Fibre
                 style={{
                 background: fibreCol,
                 ...fibre}}>
-              </animated.div>
+                </animated.div>
+              </div>
             </div>
-            <div className = "bar">
-              <animated.div className = "bar-anim" //Protein
+            <div className = "bar-container">
+              <div className = "box" style={{...transparent}}/>
+              <div className = "bar">
+                <animated.div className = "bar-anim" //Protein
                 style={{
                 background: proteinCol,
                 ...protein}}>
-              </animated.div>
+                </animated.div>
+              </div>
             </div>
-            <div className = "bar">
-              <animated.div className = "bar-anim" //Greens
+            <div className = "bar-container">
+              <div className = "box" style={{...transparent}}/>
+              <div className = "bar">
+                <animated.div className = "bar-anim" //Greens
                 style={{
                 background: greensCol,
                 ...greens}}>
-              </animated.div>
+                </animated.div>
+              </div>
             </div>
           </div>
         </div>
@@ -248,13 +261,6 @@ function App() {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          height:80,
-          width:80,
-          ...transparent,
-        }}>
-      </div> 
     </div>
   )
 }

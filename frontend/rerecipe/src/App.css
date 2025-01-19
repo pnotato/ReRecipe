@@ -29,7 +29,6 @@ html, body {
 
 .dividers {
     display: flex;
-
 }
 
 .top-right-text {
@@ -44,19 +43,36 @@ html, body {
     background-position: center; /* Center the image within the div */
     z-index: 10; /* Ensure it appears above other elements */
 }
+.input-container {
+  height:95%;
+  width:100%;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  height:5%;
+  width: 100%;
+  align-items: center;
+  border: none;
+  cursor:pointer;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.submit-button:hover {background-color: #c4c4c4}
 
 .small-input-box {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-start;
-    box-sizing: border-box; 
-    text-align: left;
-    border-radius: 15px;
-    background-color: #cdffca;
-    border: 0px;
-    color: #9b9b9b;
-    outline: none;
+  width: 100%;
+  height:100%;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box; 
+  text-align: left;
+  border-radius: 15px;
+  background-color: #cdffca;
+  border: 0px;
+  resize: none;
+  color: #9b9b9b;
+  outline: none;
 }
 
 .divider {
@@ -101,29 +117,13 @@ html, body {
   padding: 10px;
   justify-self: center;
   box-sizing: border-box; 
-}
-.submit-button {
-  width: 100;
-  align-items: center;
+  position: relative;
+  bottom: 5%;
 }
 
-.search-bar-button {
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
-}
 
-.bar-one {
-  background-color: #d0deca;
-  border-radius: 8px;
-  height: 20px;
-  width: 60%;
-  justify-self: center;
-  box-shadow:0px 6px 18px rgba(0,0,0,0.25);
-}
 .bar {
+  margin-top: 10px;
   background-color: #d0deca;
   border-radius: 8px;
   height: 20px;
@@ -131,7 +131,17 @@ html, body {
   display:flex;
   justify-self: center;
   box-shadow:0px 6px 18px rgba(0,0,0,0.25);
+}
+.bar-icon {
+  background-color: #d0deca;
+  border-radius: 8px;
+  height: 20px;
+  width: 20px;
+  display:flex;
+  justify-self: center;
+  box-shadow:0px 6px 18px rgba(0,0,0,0.25);
   margin-top: 10px;
+  
 }
 
 .bar-anim {
@@ -145,7 +155,7 @@ html, body {
   align-items: center;
   align-self: center;
   justify-content: center;
-  background-color: #01B674;
+  margin:auto;
   width: 200px;
   height: 200px;
 }
@@ -154,6 +164,7 @@ html, body {
   align-self: center;
   width: 200px;
   height: 200px;
+  bottom: 15%;
 }
 .score-bar {
   position: absolute;
@@ -165,6 +176,7 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+
 .score {
   position: absolute;
   top: 0;
@@ -210,4 +222,29 @@ html, body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.text {
+  justify-self: center;
+  font-size: 40px;
+  color:#000000;
+  position: relative;
+  bottom: 20%;
+}
+
+.box {
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  position: relative;
+}
+
+.bar-container {
+  height:20px;
+  margin-top: 15px;
+  position: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
