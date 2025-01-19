@@ -69,8 +69,22 @@ function App() {
     }
   }
 
+  function matchPercentColorReverse(percent) {
+    if (percent < 20) {
+      return "#00FF00";
+    } else if (percent >= 20 && percent < 40) {
+      return "#9AFF00";
+    } else if (percent >= 40 && percent < 60) {
+      return "#FFEF00";
+    } else if (percent >= 60 && percent < 80) {
+      return "#FF6600";
+    } else if (percent >= 80) {
+      return "#FF0000";
+    }
+  }
+
 function normalizeNutriscore(score) {
-  return 100 - ((score + 15) * 100 / (40 - (-15)));
+  return 100 - ((score + 15) * 100 / (20 - (-15)));
 }
 
 
@@ -80,22 +94,22 @@ function normalizeNutriscore(score) {
       from: { width: 0 },
       to: { width: (v1 / 100 * wid) },
     })
-    setCalorieCol(matchPercentColor(v1));
+    setCalorieCol(matchPercentColorReverse(v1));
     setSugar.start({
       from: { width: 0 },
       to: { width: (v2 / 100 * wid) },
     })
-    setSugarCol(matchPercentColor(v2));
+    setSugarCol(matchPercentColorReverse(v2));
     setFat.start({
       from: { width: 0 },
       to: { width: (v3 / 100 * wid) },
     })
-    setFatCol(matchPercentColor(v3));
+    setFatCol(matchPercentColorReverse(v3));
     setSalt.start({
       from: { width: 0 },
       to: { width: (v4 / 100 * wid) },
     })
-    setSaltCol(matchPercentColor(v4));
+    setSaltCol(matchPercentColorReverse(v4));
     setFibre.start({
       from: { width: 0 },
       to: { width: (v5 / 100 * wid) },
