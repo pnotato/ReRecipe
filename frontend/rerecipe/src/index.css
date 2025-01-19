@@ -12,8 +12,12 @@
   font-style: normal;
 }
 
+* {
+  font-family: 'Poppins-med'
+}
+
 :root {
-  font-family: 'Poppins-med', Helvetica, Inter, system-ui, Avenir,  Arial, sans-serif;
+  font-family: 'Poppins-med', Helvetica, Inter, system-ui, Avenir,  Arial, sans-serif imn !important;
 
   line-height: 1.5;
   font-weight: 400;
