@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 import { useSpring, animated } from '@react-spring/web'
+import loading from './assets/loading.svg'
 import './App.css'
 
 
@@ -31,18 +32,25 @@ const SearchButton = ({onClick}) => {
 
 function App() {
   const [input, setInput] = useState("");
-  const [springs, setSpring] = useSpring(() => ({from:{width:5}}))
-
+  const [springs, setSpring] = useSpring(() => ({from:{width:0}}))
+  const [percent, setPercent] = useSpring(() => ({from:{x:0}}))
+  const [transparent, setOpacity] = useState({background:'transparent'});
+  const [description, setDescription] = useState("");
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInput(value);
   }
   const handleClick = () => {
     setSpring.start({
-      from: {width: 5},
-      to: {width: 100},
-      delay: 100,
+      from: {width: 0},
+      to: {width: 1000},
     })
+    setPercent.start({
+      from: {x:0},
+      to: {x:100},
+    })
+    setOpacity({background:'#ffffff'});
+    setDescription("Description");
   }
 
   const handleSubmit = async () => {
@@ -66,17 +74,28 @@ function App() {
       <InputBox
           input = {input}
           handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
+          handleSubmit={handleClick}
       />
       <animated.div
-      onClick={handleClick}
       style={{
         height: 80,
         background: '#ff6d6d',
         borderRadius: 8,
         ...springs,
-      }}
-    />
+      }}>
+      </animated.div>
+      <animated.div>
+        {percent.x.to(x => x.toFixed(0))}
+      </animated.div>
+      <div
+        style={{
+          height:80,
+          width:80,
+          ...transparent,
+        }}></div>
+      <img className = 'loading'
+      src={loading} />
+      <h1>{description}</h1>
     </div>
   )
 }
