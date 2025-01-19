@@ -21,7 +21,7 @@ function matchPercentColor(percent) {
 }
 
 function App2() {
-    var calories = matchPercentColor(40);
+    var calories = matchPercentColor(80);
     var sugarcontent = matchPercentColor(40);
     var saturatedfat = matchPercentColor(40);
     var saltcontent = matchPercentColor(40);
