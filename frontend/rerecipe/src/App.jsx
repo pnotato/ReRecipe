@@ -38,12 +38,12 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/parse-recipe', {
+      const response = await fetch('http://127.0.0.1:5000/parse_recipe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ data: input }),
+        body: JSON.stringify({ text: input }),
       });
       const result = await response.json();
       console.log(result);
