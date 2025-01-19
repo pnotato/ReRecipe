@@ -4,7 +4,6 @@ import { useSpring, animated } from '@react-spring/web'
 import loading from './assets/loading.svg'
 import './App.css'
 
-
 const InputBox = ({input, handleInputChange, handleSubmit}) => {
   return (
     <div>
@@ -24,10 +23,12 @@ const InputBox = ({input, handleInputChange, handleSubmit}) => {
 
 const SearchButton = ({onClick}) => {
   return (
-    <button onClick={onClick}>
+
+    <button onClick={onClick} className="search-button">
     </button>
   )
 }
+
 
 
 function App() {
@@ -36,10 +37,12 @@ function App() {
   const [percent, setPercent] = useSpring(() => ({from:{x:0}}))
   const [transparent, setOpacity] = useState({background:'transparent'});
   const [description, setDescription] = useState("");
+
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInput(value);
   }
+
   const handleClick = () => {
     setSpring.start({
       from: {width: 0},
@@ -55,12 +58,13 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/enter-recipe-text', {
+      const response = await fetch('http://127.0.0.1:5000/parse_recipe', {
+
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ data: input }),
+        body: JSON.stringify({ text: input }),
       });
       const result = await response.json();
       console.log(result);
@@ -71,11 +75,16 @@ function App() {
 
   return (
     <div>
-      <InputBox
-          input = {input}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleClick}
-      />
+      <div className="wrapper"></div>
+      <div className="container" id="left">
+        <InputBox
+            input = {input}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+        />
+      </div>
+      <div className="container" id="center"></div>
+      <div className="container" id="right"></div>
       <animated.div
       style={{
         height: 80,
