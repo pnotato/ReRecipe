@@ -111,26 +111,28 @@ def parse_recipe(text_input: str) -> dict:
         "sodium": 0,
         "sugar": 0,
         "vitamin_a": 0,
-        "vitamin_c": 0
+        "vitamin_c": 0,
+        "weight": 0
     }
 
     for data in nutritional_data:
-        total_nutrients["calcium"] += data["calcium"]
-        total_nutrients["calories"] += data["calories"]
-        total_nutrients["carbohydrate"] += data["carbohydrate"]
-        total_nutrients["cholesterol"] += data["cholesterol"]
-        total_nutrients["fat"] += data["fat"]
-        total_nutrients["fiber"] += data["fiber"]
-        total_nutrients["iron"] += data["iron"]
-        total_nutrients["monounsaturated_fat"] += data["monounsaturated_fat"]
-        total_nutrients["polyunsaturated_fat"] += data["polyunsaturated_fat"]
-        total_nutrients["potassium"] += data["potassium"]
-        total_nutrients["protein"] += data["protein"]
-        total_nutrients["saturated_fat"] += data["saturated_fat"]
-        total_nutrients["sodium"] += data["sodium"]
-        total_nutrients["sugar"] += data["sugar"]
-        total_nutrients["vitamin_a"] += data["vitamin_a"]
-        total_nutrients["vitamin_c"] += data["vitamin_c"]
+        total_nutrients["calcium"] += int(round(data["calcium"]))
+        total_nutrients["calories"] += int(round(data["calories"]))
+        total_nutrients["carbohydrate"] += int(round(data["carbohydrate"]))
+        total_nutrients["cholesterol"] += int(round(data["cholesterol"]))
+        total_nutrients["fat"] += int(round(data["fat"]))
+        total_nutrients["fiber"] += int(round(data["fiber"]))
+        total_nutrients["iron"] += int(round(data["iron"]))
+        total_nutrients["monounsaturated_fat"] += int(round(data["monounsaturated_fat"]))
+        total_nutrients["polyunsaturated_fat"] += int(round(data["polyunsaturated_fat"]))
+        total_nutrients["potassium"] += int(round(data["potassium"]))
+        total_nutrients["protein"] += int(round(data["protein"]))
+        total_nutrients["saturated_fat"] += int(round(data["saturated_fat"]))
+        total_nutrients["sodium"] += int(round(data["sodium"]))
+        total_nutrients["sugar"] += int(round(data["sugar"]))
+        total_nutrients["vitamin_a"] += int(round(data["vitamin_a"]))
+        total_nutrients["vitamin_c"] += int(round(data["vitamin_c"]))
+        total_nutrients["weight"] += int(round(data["weight"]))
 
     response["total_nutrients"] = total_nutrients
 
