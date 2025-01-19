@@ -1,11 +1,5 @@
 import openai
-from dotenv import load_dotenv
 import os
-
-
-load_dotenv("../.env")
-
-
 
 # Helper function to call OpenAI API
 def parse_recipe(text_input: str) -> str:
