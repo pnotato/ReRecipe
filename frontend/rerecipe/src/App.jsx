@@ -148,7 +148,30 @@ function normalizeNutriscore(score) {
       handleScore(normalizeNutriscore(n["total_score"]));
       setLoadingVisible(false);
       setOpacity({ background: '#ffffff' });
-      setDescription("Description");
+
+      let f = result["total_nutrients"]
+      let nutritional_facts = `
+      Calcium: ${f["calcium"]} mg\n
+      Calories: ${f["calories"]} kcal\n
+      Carbohydrates: ${f["carbohydrate"]} g\n
+      Cholesterol: ${f["cholesterol"]} mg\n
+      Fat: ${f["fat"]} g\n
+      Fiber: ${f["fiber"]} g\n
+      Iron: ${f["iron"]} mg\n
+      Monounsaturated Fat: ${f["monounsaturated_fat"]} g\n
+      Polyunsaturated Fat: ${f["polyunsaturated_fat"]} g\n
+      Potassium: ${f["potassium"]} mg\n
+      Protein: ${f["protein"]} g\n
+      Saturated Fat: ${f["saturated_fat"]} g\n
+      Sodium: ${f["sodium"]} mg\n
+      Sugar: ${f["sugar"]} g\n
+      Vitamin A: ${f["vitamin_a"]} IU\n
+      Vitamin C: ${f["vitamin_c"]} mg\n
+      Weight: ${f["weight"]} g\n
+      `;
+
+
+      setDescription(nutritional_facts);
       setScoreVisible(true)
 
     } catch (error) {
@@ -195,7 +218,7 @@ function normalizeNutriscore(score) {
                       strokeLineCap: 'butt',
                       transform: 'rotate(-126deg)',
                       transformOrigin: 'center center',
-                      stroke: '#05696B'
+                      stroke: '#722f37'
                     }
                   }}>
                 </CircularProgressbar>
