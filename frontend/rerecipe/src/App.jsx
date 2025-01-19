@@ -50,7 +50,6 @@ function App() {
   const [transparent, setOpacity] = useState({background:'transparent'});
   const [description, setDescription] = useState("");
   const [barPercent, setBarPercent] = useState(0);
-
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInput(value);
@@ -58,54 +57,56 @@ function App() {
 
   function matchPercentColor(percent) {
     if (percent < 20) {
-        return "danger";
+        return "#FF0000";
     } else if (percent >= 20 && percent < 40) {
-        return "dark";
+        return "#FF6600";
     } else if (percent >= 40 && percent < 60) {
-        return "warning";
+        return "#FFEF00";
     } else if (percent >= 60 && percent < 80) {
-        return "secondary";
+        return "#9AFF00";
     } else if (percent >= 80) {
-        return "success";
+        return "#00FF00";
     }
-}
+} 
+
 
   function handleBars (v1, v2, v3, v4, v5, v6, v7) {
+    let wid = document.getElementsByClassName("bar")[0].clientWidth;
     setCalorie.start({
       from: {width: 0},
-      to: {width: v1},
+      to: {width: (v1/100 * wid)},
     })
-    setCalorieCol('#ff6d6d');
+    setCalorieCol(matchPercentColor(v1));
     setSugar.start({
       from: {width: 0},
-      to: {width: v2},
+      to: {width: (v2/100 * wid)},
     })
-    setSugarCol('#ff6d6d');
+    setSugarCol(matchPercentColor(v2));
     setFat.start({
       from: {width: 0},
-      to: {width: v3},
+      to: {width: (v3/100 * wid)},
     })
-    setFatCol('#ff6d6d');
+    setFatCol(matchPercentColor(v3));
     setSalt.start({
       from: {width: 0},
-      to: {width: v4},
+      to: {width: (v4/100 * wid)},
     })
-    setSaltCol('#ff6d6d');
+    setSaltCol(matchPercentColor(v4));
     setFibre.start({
       from: {width: 0},
-      to: {width: v5},
+      to: {width: (v5/100 * wid)},
     })
-    setFibreCol('#ff6d6d');
+    setFibreCol(matchPercentColor(v5));
     setProtein.start({
       from: {width: 0},
-      to: {width: v6},
+      to: {width: (v6/100 * wid)},
     })
-    setProteinCol('#ff6d6d');
+    setProteinCol(matchPercentColor(v6));
     setGreens.start({
       from: {width: 0},
-      to: {width: v7},
+      to: {width: (v7/100 * wid)},
     })
-    setGreensCol('#ff6d6d');
+    setGreensCol(matchPercentColor(v7));
   }
 
   function handleScore(v1) {
@@ -113,14 +114,14 @@ function App() {
       from: {x:0},
       to: {x:v1},
     })
+    setBarPercent(v1);
   }
   const handleClick = () => {
-    handleBars(50, 100, 150, 200, 250, 300, 350);
-    handleScore(100);
+    handleBars(10, 20, 60, 70, 80, 90, 100);
+    handleScore(90);
     setLoadingVisible(false);
     setOpacity({background:'#ffffff'});
     setDescription("Description");
-    setBarPercent(100);
     setScoreVisible(true)
   }
 

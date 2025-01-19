@@ -146,6 +146,7 @@ html, body {
 
 .bar-anim {
   position: inherit;
+  display:flex;
   height: 20px;
   border-radius: 8px;
 }
