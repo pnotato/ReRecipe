@@ -3,8 +3,10 @@ import useMeasure from 'react-use-measure'
 import { useSpring, animated } from '@react-spring/web'
 import loading from './assets/loading.svg'
 import { CircularProgressbar } from 'react-circular-progressbar';
+import { updateText } from './utils';
 import 'react-circular-progressbar/dist/styles.css';
 import './App.css'
+
 
 const InputBox = ({input, handleInputChange, handleSubmit}) => {
   return (
@@ -88,7 +90,7 @@ function App() {
         <InputBox
             input = {input}
             handleInputChange={handleInputChange}
-            handleSubmit={handleClick}
+            handleSubmit={handleSubmit}
         />
       </div>
       <div className="container" id="center"></div>
