@@ -1,5 +1,19 @@
+@font-face {
+  font-family: 'Poppins-med';
+  src: url('./Fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-bold';
+  src: url('./Fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  font-family: Helvetica, Inter, system-ui, Avenir,  Arial, sans-serif;
+  font-family: 'Poppins-med', Helvetica, Inter, system-ui, Avenir,  Arial, sans-serif;
 
   line-height: 1.5;
   font-weight: 400;

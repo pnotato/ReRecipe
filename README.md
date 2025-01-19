@@ -6,7 +6,7 @@ Project submission to nwHacks 2025.
 We wanted to create something that raises awareness about food content and encourages healthier eating habits. With CredEat, our aim is to drive positive change by leveraging innovative technology to make people more informed about their food choices. Our project aligns with critical aspects of healthcare, agriculture, safety, and education by empowering users to make better nutritional decisions and prioritize their well-being.
 
 ## What it does
-CredEat allows users to input recipes, ingredient lists, or any type of food, and analyzes the nutritional content using AI and a comprehensive food database. The app calculates a healthiness score on a scale of 0 to 100%, where 100% represents the healthiest option. It also provides a detailed breakdown of the food across seven key categories: sugar, saturated fats, calories, protein, salt, fruits, and vegetables. Alongside this breakdown, the app displays a sidebar with full nutrition facts, offering users a clear and intuitive way to understand the quality of their meals.
+CredEat allows users to input recipes, ingredient lists, or any type of food, and analyzes the nutritional content using AI and a comprehensive food database. The app calculates a healthiness score on a scale of 0 to 100%, where 100% represents the healthiest option. Our calculations are based on Nutri-Scoree, which is a nutritional rating system. It also provides a detailed breakdown of the food across seven key categories: sugar, saturated fats, calories, protein, salt, fruits, and vegetables. Alongside this breakdown, the app displays a sidebar with full nutrition facts, offering users a clear and intuitive way to understand the quality of their meals.
 
 ## How we built it
 We started with Figma to prototype the UI/UX, ensuring the design was simple, user-friendly, and visually appealing. The front-end was developed using React with Vite for deployment, leveraging JSX and CSS (with Bootstrap) for styling. For the back-end, we used Node.js and Python, integrating APIs through OAuth2.0 to access Fatsecret’s extensive nutrition database. Additionally, we used the OpenAI API to process user inputs and ensure accurate and structured outputs. This combination of tools allowed us to create a robust platform that meets user needs efficiently.
@@ -27,7 +27,6 @@ Throughout this project, we honed our skills in project management, effectively 
 
 ## What’s next for CredEat
 Looking ahead, we plan to introduce several features to enhance CredEat. These include PDF and OCR capabilities, web scraping for broader data collection, and a recipe search function to compare health scores across various options. We also aim to implement a feature that suggests healthier ingredient alternatives, as well as login functionality for saved recipes and personalized experiences. These additions will make CredEat even more useful and impactful for our users.
-
 
 
 

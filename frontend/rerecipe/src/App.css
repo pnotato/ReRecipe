@@ -227,6 +227,7 @@ html, body {
 }
 
 .text {
+  margin-top: 15px;
   font-size: 40px;
   color:#000000;
   margin-bottom: 15px;
