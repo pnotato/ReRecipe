@@ -5,6 +5,7 @@ html, body {
     height: 100%;
     box-sizing: border-box;
     color: #9b9b9b;
+    background-color: #10DE93;
 }
 
 .dividers {
@@ -49,7 +50,7 @@ html, body {
     box-sizing: border-box;
 }
 
-.large-content-box {
+/* .large-content-box {
     height: 60%; 
     width: 100%; 
     background-color: #cdffca;
@@ -61,13 +62,18 @@ html, body {
     text-align: center;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25), 
                 0 2px 6px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .top-right-text {
     position: absolute;
-    left: 30px;
-    font-size: 16px; /* Adjust size as needed */
-    color: #333; /* Text color */
+    top: 0;
+    left: 30px; /* Align to the top-right corner */
+    height: 20vh; /* Set the height */
+    width: 225px; /* Let the width adjust automatically */
+    background-image: url("./assets/logo.png");
+    background-size: contain; /* Maintain aspect ratio */
+    background-repeat: no-repeat; /* Avoid repeating the image */
+    background-position: center; /* Center the image within the div */
     z-index: 10; /* Ensure it appears above other elements */
 }
 
@@ -82,4 +88,5 @@ html, body {
     background-color: #cdffca;
     border: 0px;
     color: #9b9b9b;
+    outline: none;
 }
