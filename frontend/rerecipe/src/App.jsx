@@ -2,6 +2,8 @@ import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 import { useSpring, animated } from '@react-spring/web'
 import loading from './assets/loading.svg'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import './App.css'
 
 const InputBox = ({input, handleInputChange, handleSubmit}) => {
@@ -37,10 +39,15 @@ function App() {
   const [percent, setPercent] = useSpring(() => ({from:{x:0}}))
   const [transparent, setOpacity] = useState({background:'transparent'});
   const [description, setDescription] = useState("");
+  const [barPercent, setBarPercent] = useState(0);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInput(value);
+  }
+
+  const handleColor = (v) => {
+    
   }
 
   const handleClick = () => {
@@ -54,6 +61,7 @@ function App() {
     })
     setOpacity({background:'#ffffff'});
     setDescription("Description");
+    setBarPercent(100);
   }
 
   const handleSubmit = async () => {
@@ -80,7 +88,7 @@ function App() {
         <InputBox
             input = {input}
             handleInputChange={handleInputChange}
-            handleSubmit={handleSubmit}
+            handleSubmit={handleClick}
         />
       </div>
       <div className="container" id="center"></div>
@@ -105,6 +113,24 @@ function App() {
       <img className = 'loading'
       src={loading} />
       <h1>{description}</h1>
+      <animated.div style={{ width: 200, height: 200}}>
+        <CircularProgressbar 
+          circleRatio={0.7}
+          value= {barPercent}
+          styles={{
+            trail: {
+              strokeLineCap: 'butt',
+              transform: 'rotate(-126deg)',
+              transformOrigin: 'center center',
+            },
+            path: {
+              strokeLineCap: 'butt',
+              transform: 'rotate(-126deg)',
+              transformOrigin: 'center center',
+              stroke: '#CDFFCA'
+            }
+          }}></CircularProgressbar>
+      </animated.div>
     </div>
   )
 }
