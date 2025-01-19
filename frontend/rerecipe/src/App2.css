@@ -37,7 +37,7 @@ html, body {
     flex: 0 0 25%;
     display: flex;
     justify-content: flex-end;
-    align-items: ;
+    align-items: center;
     padding: 20px; 
     box-sizing: border-box; 
 }
