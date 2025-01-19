@@ -1,20 +1,29 @@
 from dataclasses import dataclass
 
-# Represents the nutritional data for one ingredient
+# Represents the nutritional data for one ingredient per 100g, and its weight in the recipe
 @dataclass
 class NutritionalData:
     kcal: float
     sugar_g: float
     saturated_fat_g: float
     salt_mg: float
-    fv: bool
     fibre_g: float
     protein_g: float
     weight_g: float
 
+def convert_to_nutritional_data(food_data: dict) -> NutritionalData:
+    return NutritionalData(
+        kcal=food_data["calories"],
+        sugar_g=food_data["sugar"],
+        saturated_fat_g=food_data["saturated_fat"],
+        salt_mg=food_data["sodium"],
+        fibre_g=food_data["fiber"],
+        protein_g=food_data["protein"],
+        weight_g=food_data["weight"]
+    )
 
 # Take a list of NutritionalData objects and return a NutriScore
-def calculate_nutri_score(nutritional_data: list[NutritionalData]) -> int:
+def calculate_nutri_score(nutritional_data: list[NutritionalData], percent_fv: float) -> dict:
     # Add up the data for all ingredients
     total_kcal = 0
     total_sugar_g = 0
@@ -23,7 +32,6 @@ def calculate_nutri_score(nutritional_data: list[NutritionalData]) -> int:
     total_fibre_g = 0
     total_protein_g = 0
     total_weight_g = 0
-    num_fv = 0
 
     for data in nutritional_data:
         total_kcal += data.kcal
@@ -33,11 +41,7 @@ def calculate_nutri_score(nutritional_data: list[NutritionalData]) -> int:
         total_fibre_g += data.fibre_g
         total_protein_g += data.protein_g
         total_weight_g += data.weight_g
-        if data.fv:
-            num_fv += 1
     
-    percent_fv = num_fv / len(nutritional_data) * 100
-
     # Calculate the scores for each category
     energy_density = energy_density_score(total_kcal, total_weight_g)
     sugar = sugar_score(total_sugar_g, total_weight_g)
@@ -48,11 +52,19 @@ def calculate_nutri_score(nutritional_data: list[NutritionalData]) -> int:
     protein = protein_score(total_protein_g, total_weight_g)
 
     # Calculate the NutriScore
-    nutri_score = energy_density + sugar + saturated_fat + salt - fruit_veg - fibre - protein
-    return nutri_score
-    
+    total_score = energy_density + sugar + saturated_fat + salt - fruit_veg - fibre - protein
 
-
+    # Return the NutriScore breakdown and total
+    return {
+        "energy_density": energy_density,
+        "sugar": sugar,
+        "saturated_fat": saturated_fat,
+        "salt": salt,
+        "fruit_veg": fruit_veg,
+        "fibre": fibre,
+        "protein": protein,
+        "total_score": total_score
+    }
 
 
 def energy_density_score(total_kcal: float, weight_g: float) -> int:
@@ -217,13 +229,3 @@ def protein_score(protein: float, weight_g: float) -> int:
         return 1
     else:
         return 0
-    
-
-
-print(calculate_nutri_score([
-    NutritionalData(100, 10, 5, 100, False, 5, 10, 100),
-    NutritionalData(200, 20, 10, 200, True, 10, 20, 200),
-    NutritionalData(300, 30, 15, 300, False, 15, 30, 300),
-    NutritionalData(400, 40, 20, 400, True, 20, 40, 400),
-    NutritionalData(500, 50, 25, 500, False, 25, 50, 500)
-]))

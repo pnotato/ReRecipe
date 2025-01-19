@@ -1,0 +1,67 @@
+{
+    "ingredients": [
+      {
+        "ingredient": "flour",
+        "quantity": 1,
+        "unit": "cup",
+        "weight": 125,
+        "fv": 0
+      },
+      {
+        "ingredient": "eggs",
+        "quantity": 10,
+        "unit": "",
+        "weight": 600,
+        "fv": 0
+      },
+      {
+        "ingredient": "tomato",
+        "quantity": 1,
+        "unit": "",
+        "weight": 200,
+        "fv": 1
+      },
+      {
+        "ingredient": "salt",
+        "quantity": 1,
+        "unit": "teaspoon",
+        "weight": 6,
+        "fv": 0
+      },
+      {
+        "ingredient": "lemon",
+        "quantity": 1,
+        "unit": "",
+        "weight": 70,
+        "fv": 1
+      }
+    ],
+    "nutri_score": {
+      "energy_density": 1,
+      "sugar": 0,
+      "saturated_fat": 0,
+      "salt": 3,
+      "fruit_veg": 0,
+      "fibre": 1,
+      "protein": 5,
+      "total_score": -2
+    },
+    "total_nutrients": {
+      "calcium": 27.69230769230769,
+      "calories": 1399.9710504549214,
+      "carbohydrate": 114.78742762613732,
+      "cholesterol": 2538.461538461538,
+      "fat": 60.21786600496278,
+      "fiber": 8.4247311827957,
+      "iron": 101.17452440033085,
+      "monounsaturated_fat": 22.968610421836225,
+      "polyunsaturated_fat": 8.518660049627792,
+      "potassium": 1544.2704714640197,
+      "protein": 90.5818858560794,
+      "saturated_fat": 18.714317617866,
+      "sodium": 3175.0107526881716,
+      "sugar": 11.673449131513646,
+      "vitamin_a": 101.985111662531,
+      "vitamin_c": 69.03225806451613
+    }
+  }
