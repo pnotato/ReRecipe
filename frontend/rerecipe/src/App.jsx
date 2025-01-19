@@ -153,7 +153,6 @@ function App() {
   const handleSubmit = async () => {
     setLoadingVisible(true);
     setScoreVisible(false);
-    setBarPercent(0);
     try {
       const response = await fetch('http://127.0.0.1:5000/parse_recipe', {
 
