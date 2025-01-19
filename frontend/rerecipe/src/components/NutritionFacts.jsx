@@ -1,10 +1,30 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App3.css'
+import './NutritionFacts.css'
 
 
-function App3() {
+function NutritionFacts({ totalNutrients }) {
+
+    const {
+        calcium = 0,
+        calories = 0,
+        carbohydrate = 0,
+        cholesterol = 0,
+        fat = 0,
+        fiber = 0,
+        iron = 0,
+        monounsaturated_fat = 0,
+        polyunsaturated_fat = 0,
+        potassium = 0,
+        protein = 0,
+        saturated_fat = 0,
+        sodium = 0,
+        sugar = 0,
+        vitamin_a = 0,
+        vitamin_c = 0,
+        weight = 0
+      } = totalNutrients || {};
 
     return (
 
@@ -13,8 +33,7 @@ function App3() {
             <section className="performance-facts">
                 <header className="performance-facts__header">
                 <h1 className="performance-facts__title">Nutrition Facts</h1>
-                <p>Serving Size 1/2 cup (about 82g)</p>
-                <p>Serving Per Container 8</p>
+                <p>Serving Size: {weight}g</p>
                 </header>
                 <table className="performance-facts__table">
                 <thead>
@@ -28,9 +47,9 @@ function App3() {
                     <tr>
                     <th colSpan={2}>
                         <b>Calories</b>
-                        200
+                        {calories}
                     </th>
-                    <td>Calories from Fat 130</td>
+                    <td>Calories from Fat {fat*9}</td>
                     </tr>
                     <tr className="thick-row">
                     <td colSpan={3} className="small-info">
@@ -40,7 +59,7 @@ function App3() {
                     <tr>
                     <th colSpan={2}>
                         <b>Total Fat</b>
-                        14g
+                        {fat}g
                     </th>
                     <td>
                         <b>22%</b>
@@ -48,7 +67,7 @@ function App3() {
                     </tr>
                     <tr>
                     <td className="blank-cell"></td>
-                    <th>Saturated Fat 9g</th>
+                    <th>Saturated Fat {saturated_fat}g</th>
                     <td>
                         <b>22%</b>
                     </td>
@@ -61,7 +80,7 @@ function App3() {
                     <tr>
                     <th colSpan={2}>
                         <b>Cholesterol</b>
-                        55mg
+                        {cholesterol}mg
                     </th>
                     <td>
                         <b>18%</b>
@@ -70,7 +89,7 @@ function App3() {
                     <tr>
                     <th colSpan={2}>
                         <b>Sodium</b>
-                        40mg
+                        {sodium}mg
                     </th>
                     <td>
                         <b>2%</b>
@@ -79,7 +98,7 @@ function App3() {
                     <tr>
                     <th colSpan={2}>
                         <b>Total Carbohydrate</b>
-                        17g
+                        {carbohydrate}g
                     </th>
                     <td>
                         <b>6%</b>
@@ -89,18 +108,18 @@ function App3() {
                     <td className="blank-cell"></td>
                     <th>Dietary Fiber 1g</th>
                     <td>
-                        <b>4%</b>
+                        <b>{fiber}g</b>
                     </td>
                     </tr>
                     <tr>
                     <td className="blank-cell"></td>
-                    <th>Sugars 14g</th>
+                    <th>Sugars {sugar}g</th>
                     <td></td>
                     </tr>
                     <tr className="thick-end">
                     <th colSpan={2}>
                         <b>Protein</b>
-                        3g
+                        {protein}g
                     </th>
                     <td></td>
                     </tr>
@@ -109,12 +128,12 @@ function App3() {
                 <table className="performance-facts__table--grid">
                 <tbody>
                     <tr>
-                    <td colSpan={2}>Vitamin A 10%</td>
-                    <td>Vitamin C 0%</td>
+                    <td colSpan={2}>Vitamin A {vitamin_a/8}%</td>
+                    <td>Vitamin C {vitamin_c/0.8}%%</td>
                     </tr>
                     <tr className="thin-end">
-                    <td colSpan={2}>Calcium 10%</td>
-                    <td>Iron 6%</td>
+                    <td colSpan={2}>Calcium {calcium/1100 * 100}%</td>
+                    <td>Iron {iron/12 * 100}%</td>
                     </tr>
                 </tbody>
                 </table>
@@ -177,4 +196,4 @@ function App3() {
     )
 }
 
-export default App3
+export default NutritionFacts
