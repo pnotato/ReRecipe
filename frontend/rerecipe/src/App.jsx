@@ -94,8 +94,28 @@ function App() {
   }
 
   function normalizeNutriscore(score) {
-    return 100 - ((score + 15) * 100 / (40 - (-15)));
+    let percentage = 0;
+
+    if (score <= -1) {
+      // A: 80 to 100
+      percentage = 80 + ((score + 1) / -14) * 20;
+    } else if (score <= 2) {
+      // B: 60 to 80
+      percentage = 60 + ((score - 0) / 2) * 20;
+    } else if (score <= 10) {
+      // C: 40 to 60
+      percentage = 40 + ((score - 3) / 7) * 20;
+    } else if (score <= 18) {
+      // D: 20 to 40
+      percentage = 20 + ((score - 11) / 7) * 20;
+    } else {
+      // E: 0 to 20
+      percentage = 0 + ((score - 19) / 21) * 20;
+    }
+
+    return percentage;
   }
+
   function handleBars(v1, v2, v3, v4, v5, v6, v7) {
     let wid = document.getElementsByClassName("bar")[0].clientWidth;
     setCalorie.start({
@@ -181,7 +201,7 @@ function App() {
       console.error('Error: ', error);
     }
   }
-  
+
 
   return (
     <div>
@@ -198,43 +218,43 @@ function App() {
         <div className="divider large-divider">
           <div className="inner-container">
             <div className="containerA">
-            <p unselectable="on"></p>
-            <div className="text">Recipe NutriScore</div>
-            <div className='score-container'>
-              <div ref={ref} className='main'>
-                <div className="loading-container">
-                  {loadingVisible && <img className='loading'
-                    src={loading} />}
+              <p unselectable="on"></p>
+              <div className="text">Recipe NutriScore</div>
+              <div className='score-container'>
+                <div ref={ref} className='main'>
+                  <div className="loading-container">
+                    {loadingVisible && <img className='loading'
+                      src={loading} />}
+                  </div>
+                  <animated.div className='score'>
+                    {scoreVisible && percent.x.to(x => x.toFixed(0))}
+                  </animated.div>
+                  <CircularProgressbar className='.score-bar'
+                    circleRatio={0.7}
+                    value={barPercent}
+                    styles={{
+                      trail: {
+                        strokeLineCap: 'butt',
+                        transform: 'rotate(-126deg)',
+                        transformOrigin: 'center center',
+                      },
+                      path: {
+                        strokeLineCap: 'butt',
+                        transform: 'rotate(-126deg)',
+                        transformOrigin: 'center center',
+                        stroke: strokeCol,
+                      }
+                    }}>
+                  </CircularProgressbar>
                 </div>
-                <animated.div className='score'>
-                  {scoreVisible && percent.x.to(x => x.toFixed(0))}
-                </animated.div>
-                <CircularProgressbar className='.score-bar'
-                  circleRatio={0.7}
-                  value={barPercent}
-                  styles={{
-                    trail: {
-                      strokeLineCap: 'butt',
-                      transform: 'rotate(-126deg)',
-                      transformOrigin: 'center center',
-                    },
-                    path: {
-                      strokeLineCap: 'butt',
-                      transform: 'rotate(-126deg)',
-                      transformOrigin: 'center center',
-                      stroke: strokeCol,
-                    }
-                  }}>
-                </CircularProgressbar>
               </div>
             </div>
-            </div>
-   
+
             <div className="bars">
               <div className="bar-container">
-              <div className="bar-text">Calorie Density</div>
+                <div className="bar-text">Calorie Density</div>
                 <div className="box">
-                  <img src={energyimg}/>
+                  <img src={energyimg} />
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Calories 
@@ -248,7 +268,7 @@ function App() {
               <div className="bar-container">
                 <div className="bar-text">Sugar</div>
                 <div className="box">
-                  <img src={sugarimg}/>
+                  <img src={sugarimg} />
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Sugar
@@ -262,7 +282,7 @@ function App() {
               <div className="bar-container">
                 <div className="bar-text">Saturated Fats</div>
                 <div className="box">
-                  <img src={fatsimg}/>
+                  <img src={fatsimg} />
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Fat
@@ -276,7 +296,7 @@ function App() {
               <div className="bar-container">
                 <div className="bar-text">Salt</div>
                 <div className="box">
-                  <img src={saltimg}/></div>
+                  <img src={saltimg} /></div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Salt
                     style={{
@@ -289,7 +309,7 @@ function App() {
               <div className="bar-container">
                 <div className="bar-text">Fibre</div>
                 <div className="box">
-                  <img src={fiberimg}/>
+                  <img src={fiberimg} />
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Fibre
@@ -303,7 +323,7 @@ function App() {
               <div className="bar-container">
                 <div className="bar-text">Protein</div>
                 <div className="box">
-                  <img src={proteinimg}/>
+                  <img src={proteinimg} />
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Protein
@@ -315,9 +335,9 @@ function App() {
                 </div>
               </div>
               <div className="bar-container">
-              <div className="bar-text">Fruits & Vegetables</div>
+                <div className="bar-text">Fruits & Vegetables</div>
                 <div className="box">
-                  <img src={plantimg}/>
+                  <img src={plantimg} />
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Greens
