@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 import './App.css'
+
 const InputBox = ({input, handleInputChange, handleSubmit}) => {
   return (
     <div>
@@ -22,11 +23,10 @@ const InputBox = ({input, handleInputChange, handleSubmit}) => {
 
 const SearchButton = ({onClick}) => {
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} className="search-button">
     </button>
   )
 }
-
 
 function App() {
   const [input, setInput] = useState("");
@@ -53,12 +53,16 @@ function App() {
   }
 
   return (
-    <div>
-      <InputBox
-          input = {input}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-      />
+    <div className="wrapper">
+      <div className="container" id="left">
+        <InputBox
+            input = {input}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+        />
+      </div>
+      <div className="container" id="center"></div>
+      <div className="container" id="right"></div>
     </div>
   )
 }
