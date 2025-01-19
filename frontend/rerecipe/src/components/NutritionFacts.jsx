@@ -107,7 +107,66 @@ function NutritionFacts({ totalNutrients }) {
                     </tr>
                 </tbody>
                 </table>
-                
+                <table className="performance-facts__table--grid">
+                <tbody>
+                    <tr>
+                    <td colSpan={2}>Vitamin A {vitamin_a/8}%</td>
+                    <td>Vitamin C {vitamin_c/0.8}%</td>
+                    </tr>
+                    <tr className="thin-end">
+                    <td colSpan={2}>Calcium {calcium/1100 * 100}%</td>
+                    <td>Iron {iron/12 * 100}%</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table className="performance-facts__table--small small-info">
+                <thead>
+                    <tr>
+                    <td colSpan={2} />
+                    <th>Calories:</th>
+                    <th>2,000</th>
+                    <th>2,500</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th colSpan={2}>Total Fat</th>
+                    <td>Less than</td>
+                    <td>65g</td>
+                    <td>80g</td>
+                    </tr>
+                    <tr>
+                    <td className="blank-cell" />
+                    <th>Saturated Fat</th>
+                    <td>Less than</td>
+                    <td>20g</td>
+                    <td>25g</td>
+                    </tr>
+                    <tr>
+                    <th colSpan={2}>Cholesterol</th>
+                    <td>Less than</td>
+                    <td>300mg</td>
+                    <td>300 mg</td>
+                    </tr>
+                    <tr>
+                    <th colSpan={2}>Sodium</th>
+                    <td>Less than</td>
+                    <td>2,400mg</td>
+                    <td>2,400mg</td>
+                    </tr>
+                    <tr>
+                    <th colSpan={3}>Total Carbohydrate</th>
+                    <td>300g</td>
+                    <td>375g</td>
+                    </tr>
+                    <tr>
+                    <td className="blank-cell" />
+                    <th colSpan={2}>Dietary Fiber</th>
+                    <td>25g</td>
+                    <td>30g</td>
+                    </tr>
+                </tbody>
+                </table>
                 <p className="small-info">Calories per gram:</p>
                 <p className="small-info text-center">Fat 9 • Carbohydrate 4 • Protein 4</p>
             </section>
