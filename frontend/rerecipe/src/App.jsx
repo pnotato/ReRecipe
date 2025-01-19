@@ -42,6 +42,7 @@ function App() {
   const [fibreCol, setFibreCol] = useState('#ff6d6d')
   const [proteinCol, setProteinCol] = useState('#ff6d6d')
   const [greensCol, setGreensCol] = useState('#ff6d6d')
+  const [strokeCol, setstrokeCol] = useState('#ff6d6d')
 
   const [ref, { width }] = useMeasure()
   const [loadingVisible, setLoadingVisible] = useState(true);
@@ -160,6 +161,7 @@ function normalizeNutriscore(score) {
 
       handleBars((n["energy_density"] / 10) * 100, (n["sugar"] / 10) * 100, (n["saturated_fat"] / 10) * 100, (n["salt"] / 10) * 100, (n["fibre"] / 5) * 100, (n["protein"] / 5) * 100, (n["fruit_veg"] / 5) * 100);
       handleScore(normalizeNutriscore(n["total_score"]));
+      setstrokeCol(matchPercentColor(normalizeNutriscore(n["total_score"])));
       setLoadingVisible(false);
       setOpacity({ background: '#ffffff' });
 
@@ -184,7 +186,7 @@ function normalizeNutriscore(score) {
       Weight: ${f["weight"]} g\n
       `;
 
-
+      
       setDescription(nutritional_facts);
       setScoreVisible(true)
 
@@ -192,6 +194,7 @@ function normalizeNutriscore(score) {
       console.error('Error: ', error);
     }
   }
+  
 
   return (
     <div>
@@ -232,7 +235,7 @@ function normalizeNutriscore(score) {
                       strokeLineCap: 'butt',
                       transform: 'rotate(-126deg)',
                       transformOrigin: 'center center',
-                      stroke: '#722f37'
+                      stroke: strokeCol,
                     }
                   }}>
                 </CircularProgressbar>
