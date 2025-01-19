@@ -1,3 +1,4 @@
 .env
 /environment/
 /backend/__pycache__/
+test.py

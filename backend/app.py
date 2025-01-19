@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from parse_recipe import parse_recipe
+from dotenv import load_dotenv, find_dotenv
+
 
 app = Flask(__name__)
 CORS(app)
@@ -21,3 +23,4 @@ def call_openai():
 
 if __name__ == "__main__":
     app.run(debug=True)  # remove debug later on.
+    load_dotenv(find_dotenv())
