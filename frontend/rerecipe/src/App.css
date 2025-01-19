@@ -114,16 +114,22 @@ html, body {
 
 .inner-container {
   width: 100%;
-  padding: 10px;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
   justify-self: center;
   box-sizing: border-box; 
   position: relative;
-  bottom: 5%;
+  background-color: #cdffca;
+  text-align: center;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow:0px 6px 18px rgba(0,0,0,0.25);
+  padding-top: 0px;
 }
 
 
 .bar {
-  margin-top: 10px;
   background-color: #d0deca;
   border-radius: 8px;
   height: 20px;
@@ -165,10 +171,9 @@ html, body {
   align-self: center;
   width: 200px;
   height: 200px;
-  bottom: 15%;
+
 }
 .score-bar {
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -226,15 +231,15 @@ html, body {
 }
 
 .text {
-  justify-self: center;
+
   font-size: 40px;
   color:#000000;
-  position: relative;
-  bottom: 20%;
+
+
+
 }
 
 .box {
-  margin-top: 10px;
   width: 20px;
   height: 20px;
   display: flex;
@@ -247,5 +252,18 @@ html, body {
   position: inherit;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: right;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  justify-self: center;
+  width: 75%;
+
+}
+
+.bar-text {
+  color: black;
 }
