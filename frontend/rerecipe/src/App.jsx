@@ -2,6 +2,14 @@ import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 import { useSpring, animated } from '@react-spring/web'
 import loading from './assets/loading.svg'
+import sugarimg from './assets/sugar.svg'
+import fatsimg from './assets/fats.svg'
+import plantimg from './assets/plant.svg'
+import proteinimg from './assets/protein.svg'
+import saltimg from './assets/salt.svg'
+import fiberimg from './assets/fiber.svg'
+import energyimg from './assets/energy.svg'
+
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { updateText } from './utils';
 import 'react-circular-progressbar/dist/styles.css';
@@ -45,8 +53,8 @@ function App() {
   const [strokeCol, setstrokeCol] = useState('#ff6d6d')
 
   const [ref, { width }] = useMeasure()
-  const [loadingVisible, setLoadingVisible] = useState(true);
-  const [scoreVisible, setScoreVisible] = useState(false);
+  const [loadingVisible, setLoadingVisible] = useState(false);
+  const [scoreVisible, setScoreVisible] = useState(true);
   const [percent, setPercent] = useSpring(() => ({ from: { x: 0 } }))
   const [transparent, setOpacity] = useState({ background: 'transparent' });
   const [description, setDescription] = useState("");
@@ -145,6 +153,8 @@ function normalizeNutriscore(score) {
   }
 
   const handleSubmit = async () => {
+    setLoadingVisible(true);
+    setScoreVisible(false);
     try {
       const response = await fetch('http://127.0.0.1:5000/parse_recipe', {
 
@@ -247,7 +257,7 @@ function normalizeNutriscore(score) {
               <div className="bar-container">
               <div className="bar-text">Calorie Density</div>
                 <div className="box">
-                  <img src={loading}/>
+                  <img src={energyimg}/>
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Calories 
@@ -261,7 +271,7 @@ function normalizeNutriscore(score) {
               <div className="bar-container">
                 <div className="bar-text">Sugar</div>
                 <div className="box">
-                  <img src={loading}/>
+                  <img src={sugarimg}/>
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Sugar
@@ -275,7 +285,7 @@ function normalizeNutriscore(score) {
               <div className="bar-container">
                 <div className="bar-text">Saturated Fats</div>
                 <div className="box">
-                  <img src={loading}/>
+                  <img src={fatsimg}/>
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Fat
@@ -289,7 +299,7 @@ function normalizeNutriscore(score) {
               <div className="bar-container">
                 <div className="bar-text">Salt</div>
                 <div className="box">
-                  <img src={loading}/></div>
+                  <img src={saltimg}/></div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Salt
                     style={{
@@ -302,7 +312,7 @@ function normalizeNutriscore(score) {
               <div className="bar-container">
                 <div className="bar-text">Fibre</div>
                 <div className="box">
-                  <img src={loading}/>
+                  <img src={fiberimg}/>
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Fibre
@@ -316,7 +326,7 @@ function normalizeNutriscore(score) {
               <div className="bar-container">
                 <div className="bar-text">Protein</div>
                 <div className="box">
-                  <img src={loading}/>
+                  <img src={proteinimg}/>
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Protein
@@ -330,7 +340,7 @@ function normalizeNutriscore(score) {
               <div className="bar-container">
               <div className="bar-text">Fruits & Vegetables</div>
                 <div className="box">
-                  <img src={loading}/>
+                  <img src={plantimg}/>
                 </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Greens
