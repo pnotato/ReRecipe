@@ -69,6 +69,10 @@ function App() {
     }
   }
 
+function normalizeNutriscore(score) {
+  return 100 - ((score + 15) * 100 / (40 - (-15)));
+}
+
 
   function handleBars(v1, v2, v3, v4, v5, v6, v7) {
     let wid = document.getElementsByClassName("bar")[0].clientWidth;
@@ -141,7 +145,7 @@ function App() {
       console.log(n)
 
       handleBars((n["energy_density"] / 10) * 100, (n["sugar"] / 10) * 100, (n["saturated_fat"] / 10) * 100, (n["salt"] / 10) * 100, (n["fibre"] / 5) * 100, (n["protein"] / 5) * 100, (n["fruit_veg"] / 5) * 100);
-      handleScore(n["total_score"]);
+      handleScore(normalizeNutriscore(n["total_score"]));
       setLoadingVisible(false);
       setOpacity({ background: '#ffffff' });
       setDescription("Description");
@@ -166,8 +170,9 @@ function App() {
         </div>
         <div className="divider large-divider">
           <div className="inner-container">
+            <div className="containerA">
             <p unselectable="on"></p>
-            <div className="text">This Recipe has a NutriScore of:</div>
+            <div className="text">Recipe NutriScore</div>
             <div className='score-container'>
               <div ref={ref} className='main'>
                 <div className="loading-container">
@@ -190,12 +195,14 @@ function App() {
                       strokeLineCap: 'butt',
                       transform: 'rotate(-126deg)',
                       transformOrigin: 'center center',
-                      stroke: '#CDFFCA'
+                      stroke: '#05696B'
                     }
                   }}>
                 </CircularProgressbar>
               </div>
             </div>
+            </div>
+   
             <div className="bars">
               <div className="bar-container">
               <div className="bar-text">Energy Density</div>
