@@ -85,7 +85,7 @@ function App() {
   }
 
 function normalizeNutriscore(score) {
-  return 100 - ((score + 15) * 100 / (20 - (-15)));
+  return 100 - ((score + 15) * 100 / (40 - (-15)));
 }
 
 
@@ -93,22 +93,22 @@ function normalizeNutriscore(score) {
     let wid = document.getElementsByClassName("bar")[0].clientWidth;
     setCalorie.start({
       from: { width: 0 },
-      to: { width: (v1 / 100 * wid) },
+      to: { width: ((1 - (v1 / 100)) * wid) },
     })
     setCalorieCol(matchPercentColorReverse(v1));
     setSugar.start({
       from: { width: 0 },
-      to: { width: (v2 / 100 * wid) },
+      to: { width: ((1 - (v2 / 100)) * wid) },
     })
     setSugarCol(matchPercentColorReverse(v2));
     setFat.start({
       from: { width: 0 },
-      to: { width: (v3 / 100 * wid) },
+      to: { width: ((1 - (v3 / 100)) * wid) },
     })
     setFatCol(matchPercentColorReverse(v3));
     setSalt.start({
       from: { width: 0 },
-      to: { width: (v4 / 100 * wid) },
+      to: { width: ((1 - (v4 / 100)) * wid) },
     })
     setSaltCol(matchPercentColorReverse(v4));
     setFibre.start({
@@ -246,7 +246,9 @@ function normalizeNutriscore(score) {
             <div className="bars">
               <div className="bar-container">
               <div className="bar-text">Calorie Density</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Calories 
                     style={{
@@ -258,7 +260,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Sugar</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Sugar
                     style={{
@@ -270,7 +274,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Saturated Fats</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Fat
                     style={{
@@ -282,7 +288,8 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Salt</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/></div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Salt
                     style={{
@@ -294,7 +301,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Fibre</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Fibre
                     style={{
@@ -306,7 +315,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
                 <div className="bar-text">Protein</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Protein
                     style={{
@@ -318,7 +329,9 @@ function normalizeNutriscore(score) {
               </div>
               <div className="bar-container">
               <div className="bar-text">Fruits & Vegetables</div>
-                <div className="box" style={{ ...transparent }} />
+                <div className="box">
+                  <img src={loading}/>
+                </div>
                 <div className="bar">
                   <animated.div className="bar-anim" //Greens
                     style={{
