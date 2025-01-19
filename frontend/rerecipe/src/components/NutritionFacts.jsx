@@ -107,18 +107,6 @@ function NutritionFacts({ totalNutrients }) {
                     </tr>
                 </tbody>
                 </table>
-                <table className="performance-facts__table--grid">
-                <tbody>
-                    <tr>
-                    <td colSpan={2}>Vitamin A {vitamin_a/8}%</td>
-                    <td>Vitamin C {vitamin_c/0.8}%</td>
-                    </tr>
-                    <tr className="thin-end">
-                    <td colSpan={2}>Calcium {calcium/1100 * 100}%</td>
-                    <td>Iron {iron/12 * 100}%</td>
-                    </tr>
-                </tbody>
-                </table>
                 <table className="performance-facts__table--small small-info">
                 <thead>
                     <tr>
