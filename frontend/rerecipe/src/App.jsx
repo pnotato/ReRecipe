@@ -53,8 +53,8 @@ function App() {
   const [strokeCol, setstrokeCol] = useState('#ff6d6d')
 
   const [ref, { width }] = useMeasure()
-  const [loadingVisible, setLoadingVisible] = useState(true);
-  const [scoreVisible, setScoreVisible] = useState(false);
+  const [loadingVisible, setLoadingVisible] = useState(false);
+  const [scoreVisible, setScoreVisible] = useState(true);
   const [percent, setPercent] = useSpring(() => ({ from: { x: 0 } }))
   const [transparent, setOpacity] = useState({ background: 'transparent' });
   const [description, setDescription] = useState("");
@@ -153,6 +153,8 @@ function normalizeNutriscore(score) {
   }
 
   const handleSubmit = async () => {
+    setLoadingVisible(true);
+    setScoreVisible(false);
     try {
       const response = await fetch('http://127.0.0.1:5000/parse_recipe', {
 
