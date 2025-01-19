@@ -5,8 +5,6 @@ from parse_recipe import parse_recipe
 app = Flask(__name__)
 CORS(app)
 
-# Load OpenAI API key
-
 @app.route("/parse_recipe", methods=["POST"])
 def call_openai():
     data = request.json
