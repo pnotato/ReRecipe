@@ -245,7 +245,7 @@ function normalizeNutriscore(score) {
    
             <div className="bars">
               <div className="bar-container">
-              <div className="bar-text">Energy Density</div>
+              <div className="bar-text">Calorie Density</div>
                 <div className="box" style={{ ...transparent }} />
                 <div className="bar">
                   <animated.div className="bar-anim" //Calories 
