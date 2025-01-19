@@ -38,7 +38,7 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/enter-recipe-text', {
+      const response = await fetch('http://127.0.0.1:5000/parse-recipe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

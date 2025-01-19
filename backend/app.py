@@ -9,33 +9,9 @@ load_dotenv("../.env")
 app = Flask(__name__)
 CORS(app)
 
-
 # Load OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-@app.route("/")
-def home():
-    return "Home"
-
-@app.route("/get-user/<user_id>") # testing
-def get_user(user_id):
-    user_data = {
-        "user_id": user_id,
-        "name": "John Doe",
-        "email": "john.doe@example.com"
-    }
-
-    extra = request.args.get("extra")
-    if extra:
-        user_data["extra"] = extra
-
-    return jsonify(user_data), 200
-
-@app.route("/enter-recipe-text", methods=['POST'])
-def process_recipe_text():
-    data = request.json
-    print(data)
-    return jsonify({"message": "success", "data":data})
 @app.route("/parse_recipe", methods=["POST"])
 def call_openai():
     data = request.json
